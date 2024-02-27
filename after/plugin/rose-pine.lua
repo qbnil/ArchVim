@@ -1,6 +1,6 @@
 require("rose-pine").setup({
-    variant = "moon", -- auto, main, moon, or dawn
-    dark_variant = "main", -- main, moon, or dawn
+    variant = "main", -- auto, main, moon, or dawn
+    dark_variant = "dawn", -- main, moon, or dawn
     dim_inactive_windows = false,
     extend_background_behind_borders = true,
 
@@ -9,10 +9,7 @@ require("rose-pine").setup({
         legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
         migrations = true, -- Handle deprecated options automatically
     },
-
-    styles = {
-        bold = true,
-        italic = true,
+styles = { bold = true, italic = true,
         transparency = true,
     },
 
@@ -56,14 +53,13 @@ require("rose-pine").setup({
 		--  TelescopeResultsNormal = { fg = "subtle", bg = "none" },
 		--  TelescopeSelection = { fg = "text", bg = "base" },
 		--  TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-        ["@function.builtin"] = { fg = "#f2e3cb"},
-        --  ["@constant.builtin"] = { fg = "#fcfc35"},
-        String = { fg = "#5ff5cf"},
-        ["@property"] = { fg = "#ffd1f4", italic = italic },
-        ["@function"] = { fg = 'iris' },
-        ["@function.method"] = { fg = 'iris' },
-        Function = { fg = '#57914a' },
-
+        ["@function.builtin"] = { fg = "#b8bfb8" },
+        --  ["@constant.builtin"] = { fg = ""},
+        --  String = { fg = "#5ff5cf"},
+        ["@property"] = { fg = "#9eb5a9", italic = italic },
+        --  ["@function"] = { fg = 'iris' },
+        --  ["@function.method"] = { fg = 'iris' },
+        Function = { fg = '#845aad' },
     },
 
     before_highlight = function(group, highlight, palette)
@@ -74,7 +70,7 @@ require("rose-pine").setup({
         --
         -- Change palette colour
         if highlight.fg == palette.pine then
-            highlight.fg = palette.love
+            highlight.fg = palette.pine
         end
     end,
 })

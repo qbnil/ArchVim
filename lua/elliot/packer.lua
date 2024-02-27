@@ -24,6 +24,9 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("nvim-treesitter/nvim-treesitter-context");
     use('winston0410/commented.nvim')
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
     use('Exafunction/codeium.vim')
 
     use {
@@ -60,9 +63,20 @@ return require('packer').startup(function(use)
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
         config = function()
-            require('dashboard').setup {
-                -- config
+            local header = {
+                   "  █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗ ",
+                   " ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║ ",
+                   " ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║ ",
+                   " ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+                   " ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+                   " ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
             }
+            require('dashboard').setup {
+                theme = 'hyper',
+                config = {
+                    header = header,
+                }
+            }  
         end,
         requires = {'nvim-tree/nvim-web-devicons'}
     }
@@ -70,5 +84,6 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }   
+    use('CRAG666/code_runner.nvim')
 end)
 

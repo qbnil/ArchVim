@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["code_runner.nvim"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
+    url = "https://github.com/CRAG666/code_runner.nvim"
+  },
   ["codeium.vim"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/codeium.vim",
@@ -115,7 +120,7 @@ _G.packer_plugins = {
     url = "https://github.com/winston0410/commented.nvim"
   },
   ["dashboard-nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14dashboard\frequire\0" },
+    config = { "\27LJ\2\n�\a\0\0\5\0\b\0\v5\0\0\0006\1\1\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0005\4\5\0=\0\6\4=\4\a\3B\1\2\1K\0\1\0\vconfig\vheader\1\0\0\1\0\1\ntheme\nhyper\nsetup\14dashboard\frequire\1\a\0\0�\1  █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗ �\1 ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║ �\1 ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║ �\1 ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║ �\1 ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║ �\1 ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ \0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -203,6 +208,12 @@ _G.packer_plugins = {
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/undotree",
@@ -215,6 +226,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
