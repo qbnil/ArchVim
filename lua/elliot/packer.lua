@@ -29,6 +29,18 @@ return require('packer').startup(function(use)
     end}
     use('Exafunction/codeium.vim')
 
+    --  use('sukima/xmledit')
+
+
+
+    --  use {
+        --  'junnplus/lsp-setup.nvim',
+        --  requires = {
+            --  'neovim/nvim-lspconfig',
+            --  'williamboman/mason.nvim', -- optional
+            --  'williamboman/mason-lspconfig.nvim', -- optional
+        --  }
+    --  }
     use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v1.x',
@@ -64,12 +76,12 @@ return require('packer').startup(function(use)
         event = 'VimEnter',
         config = function()
             local header = {
-                   "  █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗ ",
-                   " ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║ ",
-                   " ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║ ",
-                   " ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-                   " ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-                   " ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+                       "      █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗ ",
+                       "     ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║ ",
+                       "     ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║ ",
+                       "     ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+                       "     ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+                       "     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
             }
             require('dashboard').setup {
                 theme = 'hyper',
@@ -85,5 +97,22 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }   
     use('CRAG666/code_runner.nvim')
+    use {
+        'barrett-ruth/live-server.nvim',
+        -- 'git' is the default source, so no need to specify here
+        -- 'git' : 'https://github.com/barrett-ruth/live-server.nvim',
+        build = 'pnpm add -g live-server',
+        cmd = { 'LiveServerStart', 'LiveServerStop' },
+        config = function()
+            -- Configuration function for the plugin
+            require('live-server').setup()
+        end,
+    }
+    use {
+        'VonHeikemen/fine-cmdline.nvim',
+        requires = {
+            {'MunifTanjim/nui.nvim'}
+        }
+    }
 end)
 

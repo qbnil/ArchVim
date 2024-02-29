@@ -57,7 +57,7 @@ styles = { bold = true, italic = true,
         --  ["@constant.builtin"] = { fg = ""},
         --  String = { fg = "#5ff5cf"},
         ["@property"] = { fg = "#9eb5a9", italic = italic },
-        --  ["@function"] = { fg = 'iris' },
+        ["@function"] = { fg = '#7b44c1' },
         --  ["@function.method"] = { fg = 'iris' },
         Function = { fg = '#845aad' },
     },
@@ -74,6 +74,8 @@ styles = { bold = true, italic = true,
         end
     end,
 })
+--  vim.api.nvim_set_hl(0, '@lsp.type.function', {})
+
 
 vim.cmd("colorscheme rose-pine")
 -- vim.cmd("colorscheme rose-pine-main")
