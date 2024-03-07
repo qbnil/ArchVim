@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').builtin({fzf_opts
 vim.keymap.set("n", "<leader>hf", "<cmd>lua require('fzf-lua').command_history({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fj", "<cmd>lua require('fzf-lua').jumps({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fk", "<cmd>lua require('fzf-lua').keymaps({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
-vim.keymap.set("n", "<leader>b", "<cmd>lua require('fzf-lua').resume({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
+vim.keymap.set("n", "<leader>n", "<cmd>lua require('fzf-lua').resume({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('fzf-lua').help_tags({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fwn", "<cmd>lua require('fzf-lua').live_grep_native({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>", { silent = true })
 -- lsp

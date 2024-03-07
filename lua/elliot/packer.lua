@@ -5,7 +5,7 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
     use { "ibhagwan/fzf-lua",
       -- optional for icon support
@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end}
     use('Exafunction/codeium.vim')
+    use('mfussenegger/nvim-dap')
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use('theHamsta/nvim-dap-virtual-text')
 
     --  use('sukima/xmledit')
 
@@ -57,7 +60,6 @@ return require('packer').startup(function(use)
           {'saadparwaiz1/cmp_luasnip'},
           {'hrsh7th/cmp-nvim-lsp'},
           {'hrsh7th/cmp-nvim-lua'},
-
           -- Snippets
           {'L3MON4D3/LuaSnip'},
           {'rafamadriz/friendly-snippets'},
@@ -71,27 +73,6 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
         },
     })
-    use {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        config = function()
-            local header = {
-                       "      █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗ ",
-                       "     ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║ ",
-                       "     ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║ ",
-                       "     ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-                       "     ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-                       "     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-            }
-            require('dashboard').setup {
-                theme = 'hyper',
-                config = {
-                    header = header,
-                }
-            }  
-        end,
-        requires = {'nvim-tree/nvim-web-devicons'}
-    }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -109,10 +90,10 @@ return require('packer').startup(function(use)
         end,
     }
     use {
-        'VonHeikemen/fine-cmdline.nvim',
-        requires = {
-            {'MunifTanjim/nui.nvim'}
-        }
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
     }
 end)
 
