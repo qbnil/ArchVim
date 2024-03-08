@@ -5,7 +5,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'phpactor',
 })
 
 --  -- Fix Undefined global 'vim'
@@ -49,7 +48,7 @@ nvim_lsp.phpactor.setup{
     capabilities = capabilities,
     single_file_mode = true,
     filetypes = { 'php' },
-    root_dir = function(fname)    
+    root_dir = function(fname)
         return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
     end
 }

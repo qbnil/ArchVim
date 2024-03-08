@@ -4,46 +4,27 @@
 vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use('wbthomason/packer.nvim')
+    use('wbthomason/packer.nvim')
 
     use { "ibhagwan/fzf-lua",
-      -- optional for icon support
-      requires = { "nvim-tree/nvim-web-devicons" }
+        -- optional for icon support
+        requires = { "nvim-tree/nvim-web-devicons" }
     }
-    use({
-      'rose-pine/neovim',
-      as = 'rose-pine',
-      config = function()
-          vim.cmd('colorscheme rose-pine')
-      end
-    })
-
+    use { "rose-pine/neovim", as = "rose-pine" }
     use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
+    use({"roxma/LanguageServer-php-neovim", run = "composer install && composer run-script parse-stubs"})
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use("nvim-treesitter/nvim-treesitter-context");
     use('winston0410/commented.nvim')
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  -- Packer can manage itself
         require("toggleterm").setup()
     end}
     use('Exafunction/codeium.vim')
     use('mfussenegger/nvim-dap')
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use('theHamsta/nvim-dap-virtual-text')
-
-    --  use('sukima/xmledit')
-
-
-
-    --  use {
-        --  'junnplus/lsp-setup.nvim',
-        --  requires = {
-            --  'neovim/nvim-lspconfig',
-            --  'williamboman/mason.nvim', -- optional
-            --  'williamboman/mason-lspconfig.nvim', -- optional
-        --  }
-    --  }
     use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v1.x',
@@ -65,6 +46,8 @@ return require('packer').startup(function(use)
           {'rafamadriz/friendly-snippets'},
       }
     }
+
+
     -- nvim v0.7.2
     use({
         "kdheepak/lazygit.nvim",
@@ -76,7 +59,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }   
+    }
     use('CRAG666/code_runner.nvim')
     use {
         'barrett-ruth/live-server.nvim',
@@ -95,5 +78,22 @@ return require('packer').startup(function(use)
             require'alpha'.setup(require'alpha.themes.dashboard'.config)
         end
     }
+    use {
+        'folke/noice.nvim',
+        config = function()
+        -- add any options here
+        end,
+        requires = {
+            'MunifTanjim/nui.nvim',
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            'rcarriga/nvim-notify',
+        },
+    }
+    use({
+        "epwalsh/pomo.nvim",
+        tag = "*",  -- Recommended, use latest release instead of latest commit
+    })
 end)
 

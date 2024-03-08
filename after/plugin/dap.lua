@@ -44,7 +44,7 @@ dap.adapters.firefox = {
 }
 
 dap.configurations.typescript = {
-  {  
+  {
   name = 'Debug with Firefox',
   type = 'firefox',
   request = 'launch',

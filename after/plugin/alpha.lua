@@ -1,47 +1,43 @@
-local alpha = require("alpha")
+-- alpha-config.lua
+
+local status_ok, alpha = pcall(require, "alpha")
+if not status_ok then
+ return
+end
+
 local dashboard = require("alpha.themes.dashboard")
-
--- Set header
 dashboard.section.header.val = {
-"                                                        ",
-"  █████╗ ██████╗  ██████╗██╗  ██╗██╗   ██╗██╗███╗   ███╗",
-" ██╔══██╗██╔══██╗██╔════╝██║  ██║██║   ██║██║████╗ ████║",
-" ███████║██████╔╝██║     ███████║██║   ██║██║██╔████╔██║",
-" ██╔══██║██╔══██╗██║     ██╔══██║╚██╗ ██╔╝██║██║╚██╔╝██║",
-" ██║  ██║██║  ██║╚██████╗██║  ██║ ╚████╔╝ ██║██║ ╚═╝ ██║",
-" ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
-" >By @archi (dots: https://github.com/ArchVim)          ",                                          
+
+    [[          ▀████▀▄▄              ▄█ ]],
+    [[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
+    [[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
+    [[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
+    [[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
+    [[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
+    [[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
+    [[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
+    [[   █   █  █      ▄▄           ▄▀   ]],
+
 }
 
--- Set menu
-dashboard.section.buttons.val = {
-    dashboard.button( "e", "📄  > New file" , ":ene <BAR> startinsert <CR>"),
-    dashboard.button( "f", "📂  > Find file", ":lua require('fzf-lua').files({fzf_opts = {['--color'] = 'gutter:-1'}})<CR>)"),
-    dashboard.button( "r", "📚  > Recent"   , ":lua require('fzf-lua').oldfiles({fzf_opts = {['--color'] = 'gutter:-1'}})<CR>)"),
-    dashboard.button( "s", "⚙️   > Settings" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
-    dashboard.button( "q", "🚫  > Quit NVIM", ":qa!<CR>"),
+ dashboard.section.buttons.val = {
+   dashboard.button("f", "📂 Find file", ":lua require('fzf-lua').files({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>"),
+   dashboard.button("e", "📝 New file", ":ene <BAR> startinsert <CR>"),
+   dashboard.button("r", "⌛ Recently used files", ":lua require('fzf-lua').oldfiles({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>"),
+   dashboard.button("t", "🕵️ Find text", ":lua require('fzf-lua').live_grep_native({fzf_opts = {['--color'] =  'gutter:-1'}})<CR>"),
+   dashboard.button("c", "⚙️  Configuration", ":e ~/.config/nvim/lua/elliot/packer.lua<CR>"),
+   dashboard.button("q", "❌ Quit Neovim", ":qa!<CR>"),
 }
 
--- Set footer
---   NOTE: This is currently a feature in my fork of alpha-nvim (opened PR #21, will update snippet if added to main)
---   To see test this yourself, add the function as a dependecy in packer and uncomment the footer lines
---   ```init.lua
---   return require('packer').startup(function()
---       use 'wbthomason/packer.nvim'
---       use {
---           'goolord/alpha-nvim', branch = 'feature/startify-fortune',
---           requires = {'BlakeJC94/alpha-nvim-fortune'},
---           config = function() require("config.alpha") end
---       }
---   end)
---   ```
--- local fortune = require("alpha.fortune") 
--- dashboard.section.footer.val = fortune()
+local function footer()
+ return " Just be brave, and the whole world will be at your feet..."
+end
 
--- Send config to alpha
+dashboard.section.footer.val = footer()
+
+dashboard.section.footer.opts.hl = "Type"
+dashboard.section.header.opts.hl = "Include"
+dashboard.section.buttons.opts.hl = "Keyword"
+
+dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
-
--- Disable folding on alpha buffer
-vim.cmd([[
-    autocmd FileType alpha setlocal nofoldenable
-]])
