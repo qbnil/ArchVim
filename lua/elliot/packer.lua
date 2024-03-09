@@ -12,7 +12,6 @@ return require('packer').startup(function(use)
     }
     use { "rose-pine/neovim", as = "rose-pine" }
     use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
-    use({"roxma/LanguageServer-php-neovim", run = "composer install && composer run-script parse-stubs"})
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
     use("nvim-treesitter/nvim-treesitter-context");
@@ -25,6 +24,7 @@ return require('packer').startup(function(use)
     use('mfussenegger/nvim-dap')
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use('theHamsta/nvim-dap-virtual-text')
+    use('mfussenegger/nvim-dap-python')
     use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v1.x',
