@@ -49,7 +49,7 @@ nvim_lsp.phpactor.setup{
     single_file_mode = true,
     filetypes = { 'php' },
     root_dir = function(fname)
-        return lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+        return vim.loop.os_homedir()
     end
 }
 local cmp = require('cmp')

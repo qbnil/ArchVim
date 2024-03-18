@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
@@ -96,6 +95,25 @@ return require('packer').startup(function(use)
             -- Optional, but highly recommended if you want to use the "Default" timer
             "rcarriga/nvim-notify",
         },
+    })
+    use('norcalli/nvim-colorizer.lua')
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {
+                { map_cr = true }
+            }
+        end
+    }
+    use ('windwp/nvim-ts-autotag')
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+    use('lewis6991/gitsigns.nvim')
+    use ({
+        'nvimdev/lspsaga.nvim',
     })
 end)
 

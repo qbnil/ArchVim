@@ -33,3 +33,4 @@ vim.keymap.set({"n", "v"}, "k", [[gk]])
 --  end
 
 --  vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.require("remap").indent_tags()', { noremap = true, expr = true })
+vim.keymap.set("n","<leader>\\", "<cmd>so ~/.config/nvim/after/plugin/lspsaga.lua<CR>")
