@@ -20,7 +20,8 @@ local function set_hl(name)
 end
 
 -- custom winbar colors
-vim.cmd [[hi WinBar guisp=#030408 guibg=#030408]]
-vim.cmd [[hi WinBarNC guisp=#030408  gui=underline guibg=#030408]]
+vim.cmd [[hi WinBar guisp=#08090 guibg=##08090]]
+vim.cmd [[hi WinBarNC guisp=#08090 gui=underline guibg=#08090]]
 --  vim.cmd [[hi LspSagaWinbarFileIcon guisp=#665c54 gui=underline guibg=#313131]]
 set_hl("LspSagaWinbar")
+

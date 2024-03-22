@@ -5,6 +5,9 @@ vim.keymap.set("n", "<leader>hf", "<cmd>lua require('fzf-lua').command_history({
 vim.keymap.set("n", "<leader>fj", "<cmd>lua require('fzf-lua').jumps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
 vim.keymap.set("n", "<leader>fk", "<cmd>lua require('fzf-lua').keymaps({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('fzf-lua').help_tags({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
+vim.keymap.set("n", "<leader>fwn", "<cmd>lua require('fzf-lua').live_grep_native({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
+vim.keymap.set("n", "<leader>n", "<cmd>lua require('fzf-lua').resume({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
+vim.keymap.set("n", "<leader>fp", "<cmd>lua require('fzf-lua').grep_project({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>", { silent = true })
 -- lsp
 vim.keymap.set('n', '<leader>lr', "<cmd>lua require('fzf-lua').lsp_references({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>")
 vim.keymap.set('n', '<leader>ld', "<cmd>lua require('fzf-lua').lsp_definitions({fzf_opts = {['--color'] =  'gutter:-1'}})<cr>")
@@ -35,43 +38,18 @@ require('fzf-lua').setup{
 }
 vim.keymap.set({ "n" }, "<leader>;", function()
     require("fzf-lua").files({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
+        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android' --exclude 'undodir'",
         winopts = { preview = { hidden = "nohidden" } },
         fzf_opts = {['--color'] =  'gutter:-1'},
     })
 end, { silent = true, desc = "Fuzzy complete file" })
-vim.keymap.set({ "n" }, "<leader>n", function()
-    require("fzf-lua").resume({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
-        winopts = { preview = { hidden = "nohidden" } },
-        fzf_opts = {['--color'] =  'gutter:-1'},
-    })
-end, { silent = true, desc = "Resume search" })
-vim.keymap.set({ "n" }, "<leader>fp", function()
-    require("fzf-lua").grep_project({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
-        winopts = { preview = { hidden = "nohidden" } },
-        fzf_opts = {['--color'] =  'gutter:-1'},
-    })
-end, { silent = true, desc = "Grep project" })
 vim.keymap.set({ "n" }, "<leader>fbl", function()
-    require("fzf-lua").grep_project({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
-        winopts = { preview = { hidden = "nohidden" } },
+    require("fzf-lua").lines({
         fzf_opts = {['--color'] =  'gutter:-1'},
     })
 end, { silent = true, desc = "Find b-lines" })
 vim.keymap.set({ "n" }, "<leader>fl", function()
-    require("fzf-lua").grep_project({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
-        winopts = { preview = { hidden = "nohidden" } },
+    require("fzf-lua").blines({
         fzf_opts = {['--color'] =  'gutter:-1'},
     })
 end, { silent = true, desc = "Find lines" })
-vim.keymap.set({ "n" }, "<leader>fwn", function()
-    require("fzf-lua").grep_project({
-        cmd = "fd --type f --hidden --follow --exclude '.git' --exclude '.local' --exclude '.cache' --exclude '.android'",
-        winopts = { preview = { hidden = "nohidden" } },
-        fzf_opts = {['--color'] =  'gutter:-1'},
-    })
-end, { silent = true, desc = "Find word" })

@@ -8,9 +8,10 @@ return require('packer').startup(function(use)
         -- optional for icon support
         requires = { "nvim-tree/nvim-web-devicons" }
     }
-    use { "rose-pine/neovim", as = "rose-pine" }
+    --  use { "rose-pine/neovim", as = "rose-pine" }
     use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
     use("theprimeagen/harpoon")
+    use 'romgrk/barbar.nvim'
     use("mbbill/undotree")
     use("nvim-treesitter/nvim-treesitter-context");
     use('winston0410/commented.nvim')
@@ -20,6 +21,7 @@ return require('packer').startup(function(use)
     end}
     use('Exafunction/codeium.vim')
     use('mfussenegger/nvim-dap')
+    use { "nvim-neotest/nvim-nio" }
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use('theHamsta/nvim-dap-virtual-text')
     use('mfussenegger/nvim-dap-python')
@@ -44,16 +46,7 @@ return require('packer').startup(function(use)
           {'rafamadriz/friendly-snippets'},
       }
     }
-
-
-    -- nvim v0.7.2
-    use({
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-    })
+    use('maxmx03/fluoromachine.nvim')
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
