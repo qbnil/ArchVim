@@ -17,7 +17,7 @@ notify.setup({
 
     -- For stages that change opacity this is treated as the highlight behind the window
     -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values
-    background_colour = "#1d0d34",
+    background_colour = "#1c082d",
 
     -- Minimum width for notification windows
     minimum_width = 20,
@@ -34,5 +34,10 @@ notify.setup({
 vim.cmd([[
                 hi NotifyINFOBorder guifg=#b58b4c
                 hi NotifyINFOTitle  guifg=#cfa20e
+                highlight link NotifyERRORBody Normal
+                highlight link NotifyWARNBody Normal
+                highlight link NotifyINFOBody Normal
+                highlight link NotifyDEBUGBody Normal
+                highlight link NotifyTRACEBody Normal
             ]])
 vim.notify = notify
